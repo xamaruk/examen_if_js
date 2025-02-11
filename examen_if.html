@@ -1,57 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Examen JavaScript</title>
-
-</head>
-<body>
-    <h1>Examen JavaScript</h1>
-    <p>Desarrolla necesarias para obtener la funcionalidad requerida en cada punto</p>
-    <h2>Botón contador</h2>
-    <p>Desarrolla una función para que cada vez que pulsamos en el botón siguiente se incremente en 1 el valor del contador inferior</p>
-    <button>Aumenta 1</button>
-    <p>Contador: <span>0</span></p>
-    <h2>Botones aumenta y reduce</h2>
-    <p>Desarrolla 2 funciones, una para cada botón siguiente, para que al pulsar sobre uno de ellos aumente el valor del contador y al pulsar sobre el otro disminuya</p>
-    <button>Aumenta 1</button>
-    <button>Disminuye 1</button>
-    <p>Contador: <span>0</span></p>
-    <h2>Cuenta atrás</h2>
-    <p>Prepara una función sobre el siguiente botón para que cada vez que pulsemos en él disminuya un valor del contador, empezando en 10 hasta llegar a 0. Una vez llegado a 0, cada vez que pulsemos en él aparece un mensaje en el contador: "Cuenta finalizada. No puedes continuar".</p>
-    <button>Cuenta atrás</button>
-    <p>Contador: <span>10</span></p>
-    <h2>Cuenta atrás con reseteo</h2>
-    <p>Modifica el caso anterior, sobre el siguiente botón, para que cuando llegue a cero y pulsemos de nuevo, el contador pase de nuevo a 10 y vuelva a empezar la cuenta atrás</p>
-    <button>Cuenta atrás y reset</button>
-    <p>Contador: <span>10</span></p>
-    <h2>Cuenta hacia adelante condicionada</h2>
-    <p>En este caso la cuenta va de 0 a 10, y cuando llegamos a 10 la aplicación preguntará mediante un prompt si queremos empezar de nuevo. Si respondemos que "Si" el contador vuelve a 0 para recomenzar. Y si decimos "No" aparecerá un mensaje de despedida en un alert y el propio botón del contador desaparecerá</p>
-    <button>Cuenta con mensaje</button>
-    <p>Contador: <span>0</span></p>
-    <h2>Botón cuenta y descuenta</h2>
-    <p>En este caso el mismo botón sirve para aumentar o disminuir el contador en función de lo seleccionado en el desplegable. Si seleccionamos "Cuenta" el botón aumenta el contador, y en caso contrario lo disminuye</p>
-    <label for="desp_cuenta">Selecciona acción</label>
-    <select name="desp_cuenta" id="desp_cuenta">
-        <option value="0">Cuenta</option>
-        <option value="1">Descuenta</option>
-    </select>
-    <button>Cuenta</button>
-    <p>Contador: <span>0</span></p>
-    <h2>Modificación </h2>
-    <p>Modifica el caso anterior para que además de todo lo anterior, en este caso en el mismo momento de selecionar la acción del desplegable, el texto del botón cambie, diciendo "Cuenta" o "Descuenta" en cada caso. El resto de la funcionalidad es la misma</p>
-    <label for="desp_cuenta2">Selecciona acción</label>
-    <select name="desp_cuenta2" id="desp_cuenta2">
-        <option value="0">Cuenta</option>
-        <option value="1">Descuenta</option>
-    </select>
-    <button>Cuenta</button>
-    <p>Contador: <span>0</span></p>
-    <h2>Añade círculos</h2>
-    <p>Crea una función para que al pulsar el siguiente botón se añada un círculo dentro del contenenedor siguiente. Las dimensiones del cículo son de 100x100px, color verde, y deben aparecer separados uno de otro por un espacio de 10px. Al añadir el primer círculo el texto contenido en el div tiene que desaparecer.</p>
-    <button>Añade Círculo</button>
-    <div>Añade aquí los círculos</div>
-</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .contenedor {
+        counter-reset: titulos;
+        font-family: "Titillium Web", serif;
+        font-weight: 300;
+        font-style: normal;
+      }
+      .pregunta {
+        border: 1px solid grey;
+        padding: 1rem;
+        margin: 2rem;
+        border-radius: 1rem;
+      }
+      h2::before {
+        counter-increment: titulos;
+        content: "Caso " counter(titulos) " - ";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Examen JavaScript</h1>
+      <p>
+        Desarrolla las funciones necesarias para obtener la funcionalidad requerida en cada
+        punto en un script en este mismo documento.
+      </p>
+      <article class="pregunta">
+        <h2>Botón contador</h2>
+        <p>
+          Desarrolla una función para que cada vez que pulsamos en el botón
+          siguiente se incremente en 1 el valor del contador inferior
+        </p>
+        <button>Aumenta 1</button>
+        <p>Contador: <span>0</span></p>
+      </article>
+      <article class="pregunta">
+        <h2>Botones aumenta y reduce</h2>
+        <p>
+          Desarrolla 2 funciones, una para cada botón siguiente, para que al
+          pulsar sobre uno de ellos aumente el valor del contador y al pulsar
+          sobre el otro disminuya
+        </p>
+        <button>Aumenta 1</button>
+        <button>Disminuye 1</button>
+        <p>Contador: <span>0</span></p>
+      </article>
+      <article class="pregunta">
+        <h2>Cuenta atrás</h2>
+        <p>
+          Prepara una función sobre el siguiente botón para que cada vez que
+          pulsemos en él disminuya un valor del contador, empezando en 10 hasta
+          llegar a 0. Una vez llegado a 0, cada vez que pulsemos en él aparece
+          un mensaje en el contador: "Cuenta finalizada. No puedes continuar".
+        </p>
+        <button>Cuenta atrás</button>
+        <p>Contador: <span>10</span></p>
+      </article>
+      <article class="pregunta">
+        <h2>Cuenta atrás con reseteo</h2>
+        <p>
+          Modifica el caso anterior, sobre el siguiente botón, para que cuando
+          llegue a cero y pulsemos de nuevo, el contador pase de nuevo a 10 y
+          vuelva a empezar la cuenta atrás
+        </p>
+        <button>Cuenta atrás y reset</button>
+        <p>Contador: <span>10</span></p>
+      </article>
+      <article class="pregunta">
+        <h2>Cuenta hacia adelante condicionada</h2>
+        <p>
+          En este caso la cuenta va de 0 a 10, y cuando llegamos a 10 la
+          aplicación preguntará mediante un prompt si queremos empezar de nuevo.
+          Si respondemos que "Si" el contador vuelve a 0 para recomenzar. Y si
+          decimos "No" aparecerá un mensaje de despedida en un alert y el propio
+          botón del contador desaparecerá
+        </p>
+        <button>Cuenta con mensaje</button>
+        <p>Contador: <span>0</span></p>
+      </article>
+      <article class="pregunta">
+        <h2>Botón cuenta y descuenta</h2>
+        <p>
+          En este caso el mismo botón sirve para aumentar o disminuir el
+          contador en función de lo seleccionado en el desplegable. Si
+          seleccionamos "Cuenta" el botón aumenta el contador, y en caso
+          contrario lo disminuye
+        </p>
+        <label for="desp_cuenta">Selecciona acción</label>
+        <select name="desp_cuenta" id="desp_cuenta">
+          <option value="0">Cuenta</option>
+          <option value="1">Descuenta</option>
+        </select>
+        <button>Cuenta</button>
+        <p>Contador: <span>0</span></p>
+      </article>
+      <article class="pregunta">
+        <h2>Modificación</h2>
+        <p>
+          Modifica el caso anterior para que además de todo lo anterior, en este
+          caso en el mismo momento de selecionar la acción del desplegable, el
+          texto del botón cambie, diciendo "Cuenta" o "Descuenta" en cada caso.
+          El resto de la funcionalidad es la misma
+        </p>
+        <label for="desp_cuenta2">Selecciona acción</label>
+        <select name="desp_cuenta2" id="desp_cuenta2">
+          <option value="0">Cuenta</option>
+          <option value="1">Descuenta</option>
+        </select>
+        <button>Cuenta</button>
+        <p>Contador: <span>0</span></p>
+      </article>
+      <article class="pregunta">
+        <h2>Añade círculos</h2>
+        <p>
+          Crea una función para que al pulsar el siguiente botón se añada un
+          círculo dentro del contenenedor siguiente. Las dimensiones del cículo
+          son de 100x100px, color verde, y deben aparecer separados uno de otro
+          por un espacio de 10px. Al añadir el primer círculo el texto contenido
+          en el div tiene que desaparecer.
+        </p>
+        <button>Añade Círculo</button>
+        <div>Añade aquí los círculos</div>
+      </article>
+    </div>
+  </body>
 </html>

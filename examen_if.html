@@ -1,139 +1,262 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Examen JavaScript</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      .contenedor {
-        counter-reset: titulos;
-        font-family: "Titillium Web", serif;
-        font-weight: 300;
-        font-style: normal;
-      }
-      .pregunta {
-        border: 1px solid grey;
-        padding: 1rem;
-        margin: 2rem;
-        border-radius: 1rem;
-      }
-      h2::before {
-        counter-increment: titulos;
-        content: "Caso " counter(titulos) " - ";
-      }
-    </style>
-  </head>
-  <body>
-    <div class="contenedor">
-      <h1>Examen JavaScript, cláusula If y acceso al DOM, y algo de CSS</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examen JavaScript</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .contenedor {
+      counter-reset: titulos;
+      font-family: "Titillium Web", serif;
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    .pregunta {
+      border: 1px solid grey;
+      padding: 1rem;
+      margin: 2rem;
+      border-radius: 1rem;
+    }
+
+    .pregunta h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .pregunta h2::before {
+      counter-increment: titulos;
+      content: "Caso " counter(titulos) " - ";
+    }
+
+    .pregunta p {
+      font-size: 1.3rem;
+      margin: 1rem 2rem;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    .respuesta {
+      background-color: #f0f0f0;
+      margin: 2rem;
+      padding: 2rem;
+    }
+
+    .respuesta button,
+    .respuesta select {
+      font-size: 1.2rem;
+      padding: 0.4rem;
+    }
+
+    .respuesta p {
+      margin: 2rem 0;
+    }
+
+    .pregunta ul {
+      margin: 1rem 4rem;
+      font-size: 1.2rem;
+    }
+
+    .fila {
+      margin: .5rem 0;
+      font-size: 1.3rem;
+    }
+
+    #pagina {
+      background-color: whitesmoke;
+      min-height: 450px;
+      width: 90%;
+      margin: 2rem auto;
+      padding: 2rem 4rem;
+      border: 1px solid lightgray;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="contenedor">
+    <h1>Examen JavaScript</h1>
+    <p>
+      Desarrolla las funciones necesarias para obtener la funcionalidad requerida en cada
+      punto en un script en este mismo documento.
+    </p>
+    <article class="pregunta">
+      <h2>Botón contador</h2>
       <p>
-        Desarrolla las funciones necesarias para obtener la funcionalidad requerida en cada
-        punto en un script en este mismo documento.
+        Desarrolla una función para que cada vez que pulsamos en el botón
+        siguiente se incremente en 1 el valor del contador inferior
       </p>
-      <article class="pregunta">
-        <h2>Botón contador</h2>
-        <p>
-          Desarrolla una función para que cada vez que pulsamos en el botón
-          siguiente se incremente en 1 el valor del contador inferior
-        </p>
-        <button>Aumenta 1</button>
+      <div class="respuesta">
+        <button id="btn_caso1">Aumenta 1</button>
         <p>Contador: <span>0</span></p>
-      </article>
-      <article class="pregunta">
-        <h2>Botones aumenta y reduce</h2>
-        <p>
-          Desarrolla 2 funciones, una para cada botón siguiente, para que al
-          pulsar sobre uno de ellos aumente el valor del contador y al pulsar
-          sobre el otro disminuya
-        </p>
-        <button>Aumenta 1</button>
-        <button>Disminuye 1</button>
+      </div>
+    </article>
+    <article class="pregunta">
+      <h2>Botones aumenta y reduce</h2>
+      <p>
+        Desarrolla 2 funciones, una para cada botón siguiente, para que al
+        pulsar sobre uno de ellos aumente el valor del contador y al pulsar
+        sobre el otro disminuya
+      </p>
+      <div class="respuesta">
+        <button id="btn_caso2a">Aumenta 1</button>
+        <button id="btn_caso2b">Disminuye 1</button>
         <p>Contador: <span>0</span></p>
-      </article>
-      <article class="pregunta">
-        <h2>Cuenta atrás</h2>
-        <p>
-          Prepara una función sobre el siguiente botón para que cada vez que
-          pulsemos en él disminuya un valor del contador, empezando en 10 hasta
-          llegar a 0. Una vez llegado a 0, cada vez que pulsemos en él aparece
-          un mensaje en el contador: "Cuenta finalizada. No puedes continuar".
-        </p>
-        <button>Cuenta atrás</button>
+      </div>
+    </article>
+    <article class="pregunta">
+      <h2>Cuenta atrás</h2>
+      <p>
+        Prepara una función sobre el siguiente botón para que cada vez que
+        pulsemos en él disminuya un valor del contador, empezando en 10 hasta
+        llegar a 0. Una vez llegado a 0, cada vez que pulsemos en él aparece
+        un mensaje en el contador: "Cuenta finalizada. No puedes continuar".
+      </p>
+      <div class="respuesta">
+        <button id="btn_caso3">Cuenta atrás</button>
         <p>Contador: <span>10</span></p>
-      </article>
-      <article class="pregunta">
-        <h2>Cuenta atrás con reseteo</h2>
-        <p>
-          Modifica el caso anterior, sobre el siguiente botón, para que cuando
-          llegue a cero y pulsemos de nuevo, el contador pase de nuevo a 10 y
-          vuelva a empezar la cuenta atrás
-        </p>
-        <button>Cuenta atrás y reset</button>
+      </div>
+    </article>
+    <article class="pregunta">
+      <h2>Cuenta atrás con reseteo</h2>
+      <p>
+        Modifica el caso anterior, sobre el siguiente botón, para que cuando
+        llegue a cero y pulsemos de nuevo, el contador pase de nuevo a 10 y
+        vuelva a empezar la cuenta atrás
+      </p>
+      <div class="respuesta">
+        <button id="btn_caso4">Cuenta atrás y reset</button>
         <p>Contador: <span>10</span></p>
-      </article>
-      <article class="pregunta">
-        <h2>Cuenta hacia adelante condicionada</h2>
-        <p>
-          En este caso la cuenta va de 0 a 10, y cuando llegamos a 10 la
-          aplicación preguntará mediante un prompt si queremos empezar de nuevo.
-          Si respondemos que "Si" el contador vuelve a 0 para recomenzar. Y si
-          decimos "No" aparecerá un mensaje de despedida en un alert y el propio
-          botón del contador desaparecerá
-        </p>
-        <button>Cuenta con mensaje</button>
+      </div>
+    </article>
+    <article class="pregunta">
+      <h2>Cuenta hacia adelante condicionada</h2>
+      <p>
+        En este caso la cuenta va de 0 a 10, y cuando llegamos a 10 la
+        aplicación preguntará mediante un prompt si queremos empezar de nuevo.
+        Si respondemos que "Si" el contador vuelve a 0 para recomenzar. Y si
+        decimos "No" aparecerá un mensaje de despedida en un alert y el propio
+        botón del contador desaparecerá
+      </p>
+      <div class="respuesta">
+        <button id="btn_caso5">Cuenta con mensaje</button>
         <p>Contador: <span>0</span></p>
-      </article>
-      <article class="pregunta">
-        <h2>Botón cuenta y descuenta</h2>
-        <p>
-          En este caso el mismo botón sirve para aumentar o disminuir el
-          contador en función de lo seleccionado en el desplegable. Si
-          seleccionamos "Cuenta" el botón aumenta el contador, y en caso
-          contrario lo disminuye
-        </p>
+      </div>
+    </article>
+    <article class="pregunta">
+      <h2>Botón cuenta y descuenta</h2>
+      <p>
+        En este caso el mismo botón sirve para aumentar o disminuir el
+        contador en función de lo seleccionado en el desplegable. Si
+        seleccionamos "Cuenta" el botón aumenta el contador, y en caso
+        contrario lo disminuye
+      </p>
+      <div class="respuesta">
         <label for="desp_cuenta">Selecciona acción</label>
         <select name="desp_cuenta" id="desp_cuenta">
           <option value="0">Cuenta</option>
           <option value="1">Descuenta</option>
         </select>
-        <button>Cuenta</button>
+        <button id="btn_caso6">Cuenta</button>
         <p>Contador: <span>0</span></p>
-      </article>
-      <article class="pregunta">
-        <h2>Modificación</h2>
-        <p>
-          Modifica el caso anterior para que además de todo lo anterior, en este
-          caso en el mismo momento de selecionar la acción del desplegable, el
-          texto del botón cambie, diciendo "Cuenta" o "Descuenta" en cada caso.
-          El resto de la funcionalidad es la misma
-        </p>
+      </div>
+    </article>
+    <article class="pregunta">
+      <h2>Modificación</h2>
+      <p>
+        Modifica el caso anterior para que además de todo lo anterior, en este
+        caso en el mismo momento de selecionar la acción del desplegable, el
+        texto del botón cambie, diciendo "Cuenta" o "Descuenta" en cada caso.
+        El resto de la funcionalidad es la misma
+      </p>
+      <div class="respuesta">
         <label for="desp_cuenta2">Selecciona acción</label>
         <select name="desp_cuenta2" id="desp_cuenta2">
           <option value="0">Cuenta</option>
           <option value="1">Descuenta</option>
         </select>
-        <button>Cuenta</button>
+        <button id="btn_caso7">Cuenta</button>
         <p>Contador: <span>0</span></p>
-      </article>
-      <article class="pregunta">
-        <h2>Añade círculos</h2>
-        <p>
-          Crea una función para que al pulsar el siguiente botón se añada un
-          círculo dentro del contenenedor siguiente. Las dimensiones del cículo
-          son de 100x100px, color verde, y deben aparecer separados uno de otro
-          por un espacio de 10px. Al añadir el primer círculo el texto contenido
-          en el div tiene que desaparecer.
-        </p>
-        <button>Añade Círculo</button>
+      </div>
+    </article>
+    <article class="pregunta">
+      <h2>Añade círculos</h2>
+      <p>
+        Crea una función para que al pulsar el siguiente botón se añada un
+        círculo dentro del contenenedor siguiente. Las dimensiones del cículo
+        son de 100x100px, color verde, y deben aparecer separados uno de otro
+        por un espacio de 10px. Al añadir el primer círculo el texto contenido
+        en el div tiene que desaparecer.
+      </p>
+      <div class="respuesta">
+        <button id="btn_caso8">Añade Círculo</button>
         <div>Añade aquí los círculos</div>
-      </article>
-    </div>
-  </body>
+      </div>
+    </article>
+    <article class="pregunta">
+      <h2>Inserta Contenido</h2>
+      <p>Prepara una función para que al pulsar en el botón de insertar añada un elemento al DOM con las siguientes
+        características:</p>
+      <ul>
+        <li>El elemento debe ser del tipo indicado en el primer <em>select</em></li>
+        <li>Su alineación de párrafo debe ser la indicada en el segundo <em>select</em></li>
+        <li>Su color de texto será el del tercer <em>select</em></li>
+        <li>Cada elemento se añadirá en el <em>div</em> con el id <strong>pagina</strong>, a continuación del contenido
+          que ya tenga el contenedor.</li>
+      </ul>
+      <div class="respuesta">
+        <div class="fila">
+          <label for="sel_elemento">Selecciona elemento a insertar</label>
+          <select name="sel_elemento" id="sel_elemento">
+            <option value="">Titular 1</option>
+            <option value="">Titular 2</option>
+            <option value="">Titular 3</option>
+            <option value="">Titular 4</option>
+            <option value="">Titular 5</option>
+            <option value="">Párrafo</option>
+          </select>
+        </div>
+        <div class="fila">
+          <label for="sel_align">Selecciona alineación del elemento:</label>
+          <select name="sel_align" id="sel_align">
+            <option value="">Izquierda</option>
+            <option value="">Centrado</option>
+            <option value="">Derecha</option>
+            <option value="">Justificado</option>
+          </select>
+        </div>
+        <div class="fila">
+          <label for="sel_color">Selecciona un color:</label>
+          <select name="sel_color" id="sel_color">
+            <option value="">Verde</option>
+            <option value="">Naranja</option>
+            <option value="">Verde claro</option>
+            <option value="">Azul</option>
+          </select>
+        </div>
+        <button id="btn_caso9">Insertar</button>
+        <div id="pagina">
+          <h3>Añade aquí el contenido</h3>
+        </div>
+      </div>
+    </article>
+  </div>
+</body>
+
 </html>
